@@ -1,0 +1,34 @@
+{
+  "name": "decoreba-web",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "cd src && node server.js",
+    "test": "cd src && jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://victor_fernandez_@bitbucket.org/victor_fernandez_/decoreba-web.git"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "1.17.1",
+    "express": "4.15.2",
+    "jquery": "3.2.1",
+    "react-router-dom": "4.1.1"
+  },
+  "devDependencies": {
+    "babel-core": "6.24.1",
+    "babel-loader": "7.0.0",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "chai": "3.5.0",
+    "chai-http": "3.0.0",
+    "jest-cli": "19.0.2",
+    "react": "15.5.4",
+    "react-dom": "15.5.4",
+    "should": "latest",
+    "sinon": "^2.2.0",
+    "webpack": "2.5.1",
+    "whatwg-fetch": "^2.0.3"
+  }
+}
