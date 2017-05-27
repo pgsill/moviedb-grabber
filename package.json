@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://victor_fernandez_@bitbucket.org/victor_fernandez_/decoreba-web.git"
+    "url": "git+https://Inacio_@bitbucket.org/Inacio_/moviedbgrabber.git"
   },
   "dependencies": {
     "bluebird": "^3.5.0",
