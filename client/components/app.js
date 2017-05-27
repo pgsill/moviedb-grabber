@@ -2,6 +2,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+import Home from './home';
+
 import Menu from './menu';
 
 import CompA from './compa';
@@ -16,6 +18,7 @@ function App(props) {
       </div>
       <Route path="/compa" component={CompA} />
       <Route path="/compb" component={CompB} />
+      <Route path="/movie/" component={CompA} />
     </div>
   </Router>);
 }
