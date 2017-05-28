@@ -69,7 +69,7 @@ app.get('/movie/:id', (req,res) => {
 })
 
 // =============================
-// authentication >API< routes =
+// authentication routes =
 // =============================
 
 // get an instance of the router for auth routes
@@ -165,7 +165,7 @@ apiRoutes.use(function(req, res, next) {
 
 // route to show a random message (GET http://localhost:8080/auth/)
 apiRoutes.get('/', function(req, res) {
-  res.json({ message: 'Welcome to the coolest API on earth!' });
+  res.json({ message: 'Welcome to authentication API!' });
 });
 
 // route to return all users (GET http://localhost:8080/auth/users)
@@ -177,6 +177,7 @@ apiRoutes.get('/users', function(req, res) {
 
 // apply the routes to our application with the prefix /auth
 app.use('/auth', apiRoutes);
+
 
 // =======================
 // start the server      =
