@@ -10,8 +10,8 @@ var morgan		= require('morgan');
 var mongoose    = require('mongoose');
 var path = require('path');
 var request = require('request');
-
 var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
+
 var config = require('./config'); // get our config file
 var User   = require('./app/models/user'); // get our mongoose model
 
@@ -95,6 +95,10 @@ apiRoutes.use('/create-user', function(req, res) {
 
 // route to authenticate a user (POST http://localhost:8080/auth/authenticate)
 apiRoutes.post('/authenticate', function(req, res) {
+	console.log("---------------------------------");
+	console.log("Request body: ");
+	console.log(req.body);
+	console.log("---------------------------------");
 
   // find the user
   User.findOne({

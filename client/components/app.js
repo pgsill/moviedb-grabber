@@ -1,13 +1,16 @@
-
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { index as Index, BrowserRouter as Router, Route, Match } from 'react-router-dom';
 
 import Home from './home';
-
 import Menu from './menu';
 
 import CompA from './compa';
 import CompB from './compb';
+import LoginPage from './login-page';
+
+function requireAuth(){
+  console.log("ayy")
+}
 
 function App(props) {
   return (
@@ -16,9 +19,11 @@ function App(props) {
       <div className="header">
         <Route path="/" component={Menu}/>
       </div>
-      <Route path="/compa" component={CompA} />
+      <Route exact path="/" component={CompB} />
+
+      <Route path="/login" component={LoginPage} />
       <Route path="/compb" component={CompB} />
-      <Route path="/movie/" component={CompA} />
+      <Route path="/movie/" component={CompA} onEnter={requireAuth()} />
     </div>
   </Router>);
 }
