@@ -9,6 +9,7 @@ const Menu = (props) => (
       <li><a className="brand" href="/#">MovieDB の Grabba</a></li>
       <li><Link to={'/compb'}>Popular</Link></li>
       <li><Link to={'/login'}>Login</Link></li>
+      <li><Link to={'/testcomp'}>TestComp</Link></li>
     </ul>
   </div>
 );

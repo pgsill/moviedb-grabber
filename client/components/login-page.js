@@ -33,7 +33,7 @@ export default class LoginPage extends Component{
 		.then(json => {
 			document.cookie = "token=" + json.token + ";";
 			console.log("Current cookies:");
-			console.log(document.cookie);
+			console.log(this.getCookie("token"));
 		})
 		.then(
 			fetch('http://localhost:8080/auth/users', {

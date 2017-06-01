@@ -7,6 +7,7 @@ import Menu from './menu';
 import CompA from './compa';
 import CompB from './compb';
 import LoginPage from './login-page';
+import TestComp from './testcomp';
 
 function requireAuth(){
   console.log("ayy")
@@ -20,10 +21,11 @@ function App(props) {
         <Route path="/" component={Menu}/>
       </div>
       <Route exact path="/" component={CompB} />
-
       <Route path="/login" component={LoginPage} />
       <Route path="/compb" component={CompB} />
-      <Route path="/movie/" component={CompA} onEnter={requireAuth()} />
+      <Route path="/movie/" component={CompA} />
+
+      <Route path="/testcomp" render={() => (<TestComp comp={<LoginPage />} />)} />
     </div>
   </Router>);
 }
