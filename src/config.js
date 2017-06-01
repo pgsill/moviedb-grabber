@@ -1,6 +1,6 @@
 module.exports = {
 
-    'secret': 'ilovescotchyscotch',
-    'database': '***REMOVED***'
+    'secret': 'yoursecrethere',
+    'database': 'yourmongodbhere'
 
 };

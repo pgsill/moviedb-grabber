@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
   res.sendFile('index.html');
 });
 app.get('/api/mdb', (req, res) => {
-	request('https://api.themoviedb.org/3/movie/550?api_key=***REMOVED***', function (error, response, body) {
+	request('https://api.themoviedb.org/3/movie/550?api_key=YOUR_THE_MOVIE_DB_API_KEY_HERE', function (error, response, body) {
 	  console.log('error:', error); // Print the error if one occurred 
 	  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
 	  res.json(body);
@@ -48,7 +48,7 @@ app.get('/api/mdb', (req, res) => {
 app.get('/api/search/:query', (req, res) => {
 	let query = req.params.query;
 
-	request('https://api.themoviedb.org/3/search/movie?api_key=***REMOVED***&query=' + query + '&language=en-US&page=1', function (error, response, body) {
+	request('https://api.themoviedb.org/3/search/movie?api_key=YOUR_THE_MOVIE_DB_API_KEY_HERE&query=' + query + '&language=en-US&page=1', function (error, response, body) {
 	  console.log('error:', error); // Print the error if one occurred 
 	  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
 	  console.log(res.body);
@@ -56,7 +56,7 @@ app.get('/api/search/:query', (req, res) => {
 	})
 });
 app.get('/api/popular', (req, res) => {
-	request('https://api.themoviedb.org/3/movie/popular?api_key=***REMOVED***&language=en-US&page=1', function (error, response, body) {
+	request('https://api.themoviedb.org/3/movie/popular?api_key=YOUR_THE_MOVIE_DB_API_KEY_HERE&language=en-US&page=1', function (error, response, body) {
 	  console.log('error:', error); // Print the error if one occurred 
 	  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
 	  console.log(res.body);
@@ -68,7 +68,7 @@ app.get('/api/movie/:id', (req,res) => {
 
 	let id = req.params.id;
 
-	let address = "https://api.themoviedb.org/3/movie/" + id + "?api_key=***REMOVED***&language=en-US&append_to_response=videos,credits"
+	let address = "https://api.themoviedb.org/3/movie/" + id + "?api_key=YOUR_THE_MOVIE_DB_API_KEY_HERE&language=en-US&append_to_response=videos,credits"
 
 	request(address, function (error, response, body) {
 	  console.log('error:', error) // Print the error if one occurred 
