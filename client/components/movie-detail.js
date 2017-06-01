@@ -4,11 +4,9 @@
 import React, { Component } from 'react';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
-const url = "http://localhost:8080/mdb";
-
 import CircularProgressbar from 'react-circular-progressbar';
 
-export default class CompA extends Component{
+export default class MovieDetail extends Component{
 	constructor(props) {
 	  super(props);
 	}
@@ -27,7 +25,7 @@ export default class CompA extends Component{
 	}
 
 	componentWillMount(){
-		let url = this.props.location.pathname;
+		let url = "/api" + this.props.location.pathname;
 		this.getContent(url);
 	}
 
@@ -36,9 +34,9 @@ export default class CompA extends Component{
 
 		let castJsx = cast.map(function(element, index){
 			return (
-				<div className="col s4">
+				<div className="col s4" key={index}>
 
-				<div className="card blue-grey-text text-darken-4" key={index}>
+				<div className="card blue-grey-text text-darken-4" >
 					<div className="card-image">
 						<img src={"https://image.tmdb.org/t/p/w138_and_h175_bestv2" + element.profile_path} />
 					</div>
@@ -63,6 +61,38 @@ export default class CompA extends Component{
 		</div>
 		</div>
 		)
+	}
+
+	getVideos(){
+		if (this.state.videos.results.length > 0){
+			console.log("we have videos");
+			if ((typeof this.state.videos.results[0] != "undefined") & (typeof this.state.videos.results[1] != "undefined")){
+				console.log("we have two videos");
+				return (<div>
+					<div className="detail-ytlink">
+						<a className="waves-effect waves-light btn blue" 
+							href={"https://youtube.com/watch?v=" + this.state.videos.results[0].key}>Trailer: {this.state.videos.results[0].name}</a>
+						</div>
+
+						<div className="detail-ytlink">
+							<a className="waves-effect waves-light btn blue" 
+							href={"https://youtube.com/watch?v=" + this.state.videos.results[1].key}>Trailer: {this.state.videos.results[1].name}</a>
+						</div>
+					</div>)
+			}
+			else if ((typeof this.state.videos.results[0] != "undefined") & (typeof this.state.videos.results[1] === "undefined")){
+				console.log("we one video");
+				return (					
+					<div className="detail-ytlink">
+						<a className="waves-effect waves-light btn blue" 
+							href={"https://youtube.com/watch?v=" + this.state.videos.results[0].key}>Trailer: {this.state.videos.results[0].name}</a>
+						</div>
+					)
+			}
+		}
+		else{
+			console.log("we have no videos :^(")
+		}
 	}
 
 	conditionalRender(){
@@ -120,12 +150,9 @@ export default class CompA extends Component{
 						<div className="detail-overview">
 							{this.state.overview}
 						</div>
-						<div className="detail-ytlink">
-							<a className="waves-effect waves-light btn blue" href={"https://youtube.com/watch?v=" + this.state.videos.results[0].key}>Trailer: {this.state.videos.results[0].name}</a>
-						</div>
-						<div className="detail-ytlink">
-							<a className="waves-effect waves-light btn blue" href={"https://youtube.com/watch?v=" + this.state.videos.results[1].key}>Trailer: {this.state.videos.results[1].name}</a>
-						</div>
+
+						{this.getVideos()}
+						
 					</div>
 
 					</div>

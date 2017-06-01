@@ -38,14 +38,24 @@ app.use(morgan('dev'));
 app.get('/', (req, res) => {
   res.sendFile('index.html');
 });
-app.get('/mdb', (req, res) => {
+app.get('/api/mdb', (req, res) => {
 	request('https://api.themoviedb.org/3/movie/550?api_key=***REMOVED***', function (error, response, body) {
 	  console.log('error:', error); // Print the error if one occurred 
 	  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
 	  res.json(body);
 	})
 });
-app.get('/popular', (req, res) => {
+app.get('/api/search/:query', (req, res) => {
+	let query = req.params.query;
+
+	request('https://api.themoviedb.org/3/search/movie?api_key=***REMOVED***&query=' + query + '&language=en-US&page=1', function (error, response, body) {
+	  console.log('error:', error); // Print the error if one occurred 
+	  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
+	  console.log(res.body);
+	  res.json(body);
+	})
+});
+app.get('/api/popular', (req, res) => {
 	request('https://api.themoviedb.org/3/movie/popular?api_key=***REMOVED***&language=en-US&page=1', function (error, response, body) {
 	  console.log('error:', error); // Print the error if one occurred 
 	  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
@@ -53,7 +63,7 @@ app.get('/popular', (req, res) => {
 	  res.json(body);
 	})
 });
-app.get('/movie/:id', (req,res) => {
+app.get('/api/movie/:id', (req,res) => {
 	console.log(req.params.id);
 
 	let id = req.params.id;
@@ -66,7 +76,8 @@ app.get('/movie/:id', (req,res) => {
 	  console.log(res.body);
 	  res.json(body);
 	})
-})
+});
+
 
 // =============================
 // authentication routes =

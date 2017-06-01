@@ -47,7 +47,7 @@ export default class MovieComp extends Component{
 						<div className="movie-title">{this.state.title}</div>
 						<div className="movie-date">📅 {(this.state.release_date).substring(0,4)}</div>
 						<div className="movie-score">🌟 {this.state.vote_average}</div>
-						<div className="movie-tagline">{this.state.overview}</div>
+						<div className="movie-tagline">{(this.state.overview)}</div>
 					</div>
 				</div>
 				

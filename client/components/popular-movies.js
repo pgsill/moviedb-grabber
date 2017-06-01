@@ -6,14 +6,14 @@ import MovieComp from './movie-component';
 
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
-export default class CompB extends Component{
+export default class PopularMovies extends Component{
 	constructor(props) {
 	  super(props);
 	}
 
 	/*Grabs popular movies from the server*/
 	getContent(){
-		fetch('http://localhost:8080/popular')
+		fetch('http://localhost:8080/api/popular')
 		.then(res => res.json())
       	.then(json => {
       		json = JSON.parse(json);

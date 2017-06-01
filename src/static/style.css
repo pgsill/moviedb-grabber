@@ -114,7 +114,6 @@ body {
 
 .movie-info{
     display: inline-block;
-    position: absolute;
     vertical-align: top;
     left: 1em;
 }
@@ -152,6 +151,8 @@ body {
 .movie-tagline{
     text-align: left;
     margin-left: 1.5em;
+    overflow: hidden;
+    height: 35%;
 }
 
 /* Movie detail view */
