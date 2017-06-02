@@ -17,8 +17,6 @@ function App(props) {
       <Route exact path="/" component={SearchComp} />
       <Route path="/popular" component={PopularMovies} />
       <Route path="/movie/" component={MovieDetail} />
-
-      <Route path="/testcomp" render={() => (<TestComp comp={<LoginPage />} />)} />
     </div>
   </Router>);
 }
