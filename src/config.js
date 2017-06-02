@@ -1,6 +1,6 @@
 module.exports = {
 
     'secret': 'yoursecrethere',
-    'database': 'yourmongodbhere'
+    'database': '***REMOVED***'
 
 };
