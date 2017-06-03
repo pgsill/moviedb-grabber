@@ -7,6 +7,9 @@ body {
     margin: 0;
     color: white
 }
+a{
+    color: red;
+}
 .header {
     text-align: left;
 }
@@ -16,13 +19,14 @@ body {
 }
 .header li > a {
     text-decoration: none;
+    color: #2196f3;
 }
 .header {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 .brand {
-    color: #F4511E;
+    color: #F4511E!important;
     font-size: 21px;
 }
 
@@ -301,4 +305,9 @@ body {
 
 .lessPadding{
     padding: 12px!important;
+}
+
+input[type=text]:focus {
+  border-bottom: 1px solid #2196f3!important;
+  box-shadow: 0 1px 0 0 #2196f3!important;
 }

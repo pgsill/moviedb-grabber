@@ -53,12 +53,18 @@ export default class SearchComp extends Component{
 		debounceVar = setTimeout(func, wait);
 	}
 
+	shouldDrawSearchTitle(){
+		if(!this.state.value){
+			return <div className="search-title"><h4>Search for movies</h4></div>
+		}
+	}
+
 	conditionalRender(){
 
 		if(this.state.value && !renderedResults){
 			return (
 				<div className="progress">
-					<div className="indeterminate"></div>
+					<div className="indeterminate blue"></div>
 				</div>
 			);
 		}
@@ -71,11 +77,6 @@ export default class SearchComp extends Component{
 	render(){
 		return (
 			<div className="container">
-				<div className="movie-search-box">
-					<ReactFormLabel htmlFor="search-bar" title="Search" />
-					<input name="search-bar" type="text" value={this.state.value} onChange={this.handleSearchInput.bind(this)}/>
-				</div>
-
 				<CSSTransitionGroup
 				          transitionName="example"
 				          transitionEnterTimeout={500}
@@ -85,7 +86,13 @@ export default class SearchComp extends Component{
 			               transitionAppearTimeout={500}
 			               transitionEnter={true}
 			               transitionLeave={true}>
-						{this.conditionalRender()}			
+					{this.shouldDrawSearchTitle()}
+					<div className="movie-search-box">
+						<input name="search-bar blue" type="text" value={this.state.value} onChange={this.handleSearchInput.bind(this)}/>
+					</div>
+
+					{this.conditionalRender()}			
+
 				</CSSTransitionGroup>
 			</div>
 		)
