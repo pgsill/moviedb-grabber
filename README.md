@@ -19,9 +19,9 @@ Requires a TheMovieDatabase API key to use.
 ``1.``
 ```npm install```  
 ``2.``
-```npm start```  
+```Add your TMDb API key to /src/server.js on TMDB_API_KEY```  
 ``3.``
-```localhost:8080```  
+```npm start```  
 
 ``4.``
-```Add your TMDb API key to /src/server.js on TMDB_API_KEY```
+```localhost:8080```
